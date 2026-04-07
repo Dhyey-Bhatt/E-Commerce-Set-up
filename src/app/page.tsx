@@ -21,12 +21,12 @@ async function getProducts(): Promise<Product[]> {
 export default async function Home() {
   const products = await getProducts();
 
-  // Map images for categories
-  const casualImg = products[1] ? products[1].image : '';
-  const formalImg = products[2] ? products[2].image : '';
-  const partyImg = products[15] ? products[15].image : '';
-  const gymImg = products[18] ? products[18].image : '';
-  const heroImage = '/images/hero.png';
+  // 1. Fashion Styling Imagery (Unsplash & Local)
+  const casualImg = "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1024";
+  const formalImg = "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=1024";
+  const partyImg = "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?q=80&w=1024";
+  const gymImg = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1024";
+  const heroImage = "/images/hero.png";
 
   return (
     <HomeClient 

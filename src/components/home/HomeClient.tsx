@@ -188,7 +188,7 @@ export default function HomeClient({
       </section>
 
       {/* Brands Banner */}
-      <div className="bg-black py-8 md:py-10">
+      <div id="brands" className="bg-black py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-10">
            <p className="text-white font-serif text-2xl md:text-4xl tracking-widest uppercase">Versace</p>
            <p className="text-white font-serif text-2xl md:text-4xl tracking-widest uppercase">Zara</p>
@@ -199,7 +199,7 @@ export default function HomeClient({
       </div>
 
       {/* NEW ARRIVALS */}
-      <section id="shop" className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="new-arrivals" className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-14 uppercase font-serif tracking-tighter text-black" style={{ fontFamily: 'Integral CF, sans-serif' }}>
           NEW ARRIVALS
         </h2>
@@ -228,7 +228,7 @@ export default function HomeClient({
       </div>
 
       {/* TOP SELLING */}
-      <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="on-sale" className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-14 uppercase font-serif tracking-tighter text-black" style={{ fontFamily: 'Integral CF, sans-serif' }}>
           TOP SELLING
         </h2>

@@ -58,12 +58,12 @@ export default function Navbar() {
           </div>
           
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="#" className="flex items-center gap-1 hover:text-gray-600 transition-colors">
+            <Link href="/#styles" className="flex items-center gap-1 hover:text-gray-600 transition-colors">
               Shop <ChevronDown size={16} />
             </Link>
-            <Link href="#" className="hover:text-gray-600 transition-colors">On Sale</Link>
-            <Link href="#" className="hover:text-gray-600 transition-colors">New Arrivals</Link>
-            <Link href="#" className="hover:text-gray-600 transition-colors">Brands</Link>
+            <Link href="/#on-sale" className="hover:text-gray-600 transition-colors">On Sale</Link>
+            <Link href="/#new-arrivals" className="hover:text-gray-600 transition-colors">New Arrivals</Link>
+            <Link href="/#brands" className="hover:text-gray-600 transition-colors">Brands</Link>
           </nav>
 
           <div className="flex-1 max-w-md hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 hover:bg-gray-200 transition-colors">
@@ -125,12 +125,12 @@ export default function Navbar() {
           </div>
 
           <nav className="flex flex-col gap-8 text-xl font-bold uppercase">
-            <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-between border-b border-black pb-4 text-black">
+            <Link href="/#styles" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-between border-b border-black pb-4 text-black">
               Shop <ChevronDown size={24} />
             </Link>
-            <Link href="/on-sale" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">On Sale</Link>
-            <Link href="/new-arrivals" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">New Arrivals</Link>
-            <Link href="/brands" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">Brands</Link>
+            <Link href="/#on-sale" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">On Sale</Link>
+            <Link href="/#new-arrivals" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">New Arrivals</Link>
+            <Link href="/#brands" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">Brands</Link>
           </nav>
         </div>
       </div>
