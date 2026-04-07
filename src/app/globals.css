@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Hide Next.js Dev Toolbar / Indicators / Portals */
+[data-nextjs-dev-indicator],
+[data-nextjs-dev-toolbar],
+#next-dev-indicator,
+.nextjs-portal,
+[data-nextjs-toast-wrapper],
+portal-container,
+nextjs-portal {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

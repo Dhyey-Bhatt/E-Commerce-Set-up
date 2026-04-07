@@ -1,63 +1,65 @@
+'use client';
+
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown, Search, ShoppingCart, User } from 'lucide-react';
 
 const SearchIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
-    <circle cx="11" cy="11" r="8"></circle>
-    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
+  <Search size={24} className="opacity-40" />
 );
 
 const CartIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="9" cy="21" r="1"></circle>
-    <circle cx="20" cy="21" r="1"></circle>
-    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-  </svg>
+  <ShoppingCart size={24} />
 );
 
 const UserIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-    <circle cx="12" cy="7" r="4"></circle>
-  </svg>
+  <User size={24} />
 );
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
   return (
     <>
-      <div className="bg-black text-white text-sm py-2 text-center relative flex justify-center items-center">
+      {/* Promo Bar */}
+      <div className="bg-black text-white text-[12px] md:text-sm py-2 px-4 text-center relative flex justify-center items-center">
         <p>
           Sign up and get 20% off to your first order.{' '}
           <Link href="#" className="underline font-medium">Sign Up Now</Link>
         </p>
         <button className="absolute right-4 hidden md:block">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+          <X size={20} />
         </button>
       </div>
-      <header className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-8">
+
+      <header className="border-b border-gray-200 bg-white text-black sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4 md:gap-8">
           <div className="flex items-center gap-4">
-            {/* Mobile Menu Icon */}
-            <button className="md:hidden">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="md:hidden p-1" 
+              onClick={() => setIsMenuOpen(true)}
+              aria-label="Open Menu"
+            >
+              <Menu size={24} />
             </button>
-            <Link href="/" className="text-2xl font-bold tracking-tighter uppercase font-serif" style={{ fontFamily: 'Integral CF, sans-serif' }}>SHOP.CO</Link>
+            <Link href="/" className="text-2xl md:text-3xl font-bold tracking-tighter uppercase font-serif" style={{ fontFamily: 'Integral CF, sans-serif' }}>
+              SHOP.CO
+            </Link>
           </div>
           
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link href="#" className="flex items-center gap-1 hover:text-gray-600 transition-colors">
-              Shop 
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
+              Shop <ChevronDown size={16} />
             </Link>
             <Link href="#" className="hover:text-gray-600 transition-colors">On Sale</Link>
             <Link href="#" className="hover:text-gray-600 transition-colors">New Arrivals</Link>
@@ -69,26 +71,69 @@ export default function Navbar() {
             <input 
               type="text" 
               placeholder="Search for products..." 
-              className="bg-transparent border-none outline-none w-full ml-3 text-sm"
+              className="bg-transparent border-none outline-none w-full ml-3 text-sm text-black"
             />
           </div>
 
-          <div className="flex items-center gap-4">
-            <button className="lg:hidden">
+          <div className="flex items-center gap-3 md:gap-4">
+            <button className="lg:hidden p-1">
               <SearchIcon />
             </button>
-            <Link href="/cart" className="hover:text-gray-600 transition-colors relative">
+            <Link href="/cart" className="hover:text-gray-600 transition-colors relative p-1">
               <CartIcon />
               <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
                 2
               </span>
             </Link>
-            <Link href="#" className="hover:text-gray-600 transition-colors">
+            <Link href="#" className="hover:text-gray-600 transition-colors p-1">
               <UserIcon />
             </Link>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Drawer */}
+      <div 
+        className={`fixed inset-0 z-[100] transition-opacity duration-300 md:hidden ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+        
+        {/* Drawer Content */}
+        <div 
+          className={`absolute left-0 top-0 bottom-0 w-[280px] bg-white p-6 shadow-2xl transition-transform duration-300 ease-out ${
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-8">
+            <Link 
+              href="/" 
+              onClick={() => setIsMenuOpen(false)}
+              className="text-2xl font-bold uppercase font-serif text-black" 
+              style={{ fontFamily: 'Integral CF, sans-serif' }}
+            >
+              SHOP.CO
+            </Link>
+            <button onClick={() => setIsMenuOpen(false)} className="p-1">
+              <X size={24} />
+            </button>
+          </div>
+
+          <nav className="flex flex-col gap-8 text-xl font-bold uppercase">
+            <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-between border-b border-black pb-4 text-black">
+              Shop <ChevronDown size={24} />
+            </Link>
+            <Link href="/on-sale" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">On Sale</Link>
+            <Link href="/new-arrivals" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">New Arrivals</Link>
+            <Link href="/brands" onClick={() => setIsMenuOpen(false)} className="border-b border-black pb-4 text-black">Brands</Link>
+          </nav>
+        </div>
+      </div>
     </>
   );
 }

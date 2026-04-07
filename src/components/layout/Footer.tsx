@@ -45,9 +45,10 @@ export default function Footer() {
                 type="email" 
                 placeholder="Enter your email address" 
                 className="bg-transparent outline-none w-full text-black placeholder:text-gray-400"
+                suppressHydrationWarning
               />
             </div>
-            <button className="bg-white text-black font-medium rounded-full py-3 hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-black font-medium rounded-full py-3 hover:bg-gray-100 transition-colors" suppressHydrationWarning>
               Subscribe to Newsletter
             </button>
           </div>
@@ -108,12 +109,26 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">Shop.co © 2000-2023, All Rights Reserved</p>
           <div className="flex items-center gap-2">
-            {/* Payment badges placeholder */}
-            <div className="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-bold shadow-sm">VISA</div>
-            <div className="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-bold shadow-sm">MasterCard</div>
-            <div className="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-bold shadow-sm">PayPal</div>
-            <div className="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-bold shadow-sm">ApplePay</div>
-            <div className="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-bold shadow-sm">GPay</div>
+            {/* Payment badges styling mimicking the screenshot provided */}
+            <div className="bg-white border border-gray-200 rounded-[5px] w-12 h-8 flex items-center justify-center shadow-sm p-1">
+              {/* Inlined Visa SVG for guaranteed display */}
+              <svg width="32" height="10" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                <path d="M11.96 0.176L8.064 9.808H5.504L3.328 2.096C3.184 1.552 3.088 1.344 2.688 1.136C2.016 0.768 0.944 0.4 0 0.208V0.176H4.256C4.8 0.176 5.312 0.528 5.424 1.152L6.464 6.704L9.008 0.176H11.96ZM22.464 6.736C22.48 4.704 19.648 4.592 19.664 3.28C19.664 2.88 20.064 2.448 20.928 2.336C21.36 2.288 22.528 2.224 24 2.912V0.528C23.328 0.288 22.496 0.112 21.456 0.112C18.848 0.112 17.024 1.488 17.008 3.44C16.992 4.912 18.32 5.728 19.328 6.224C20.368 6.736 20.704 7.04 20.704 7.504C20.704 8.208 19.856 8.528 19.088 8.528C17.76 8.528 16.992 8.16 16.4 7.856V10.272C17.056 10.576 18.256 10.832 19.488 10.848C22.256 10.848 22.448 9.488 22.464 6.736ZM29.072 0.176C28.448 0.176 27.936 0.544 27.712 1.072L23.712 10.56H26.352L26.88 9.104H30.128L30.432 10.56H33.008L30.736 0.176H29.072ZM27.648 7.056L28.512 4.672L29.024 4.672L29.536 7.056H27.648ZM16.32 0.176L13.792 10.56H11.232L13.76 0.176H16.32V0.176Z" fill="#1A1F71"/>
+                <path d="M5.424 1.152C5.312 0.528 4.8 0.176 4.256 0.176H0V0.176C0.944 0.368 2.016 0.736 2.688 1.104C3.088 1.312 3.184 1.52 3.328 2.064L3.84 4.128L6.464 6.704L5.424 1.152Z" fill="#F7B600"/>
+              </svg>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-[5px] w-12 h-8 flex items-center justify-center shadow-sm p-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="MasterCard" className="w-full h-auto object-contain" />
+            </div>
+            <div className="bg-white border border-gray-200 rounded-[5px] w-12 h-8 flex items-center justify-center shadow-sm p-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="w-full h-[14px] object-contain" />
+            </div>
+            <div className="bg-white border border-gray-200 rounded-[5px] w-12 h-8 flex items-center justify-center shadow-sm p-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" className="w-full h-[14px] object-contain" />
+            </div>
+            <div className="bg-white border border-gray-200 rounded-[5px] w-12 h-8 flex items-center justify-center shadow-sm p-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay" className="w-full h-[14px] object-contain" />
+            </div>
           </div>
         </div>
       </div>
